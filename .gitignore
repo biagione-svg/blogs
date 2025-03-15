@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+blogs.egg-info/
+.coverage
+db.sqlite3
+uv.lock
+logs/

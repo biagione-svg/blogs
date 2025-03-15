@@ -14,10 +14,11 @@ app = typer.Typer(
 )
 console = Console()
 
+
 @app.command()
 def hello(
     name: Optional[str] = typer.Option(None, help="Name to greet"),
-    formal: bool = typer.Option(False, "--formal", "-f", help="Use formal greeting")
+    formal: bool = typer.Option(False, "--formal", "-f", help="Use formal greeting"),
 ):
     """
     Greet a person with an optional formal greeting.
@@ -28,13 +29,14 @@ def hello(
     """
     if name is None:
         name = "World"
-    
+
     if formal:
         greeting = f"Greetings, esteemed {name}."
     else:
         greeting = f"Hello, {name}!"
-    
+
     console.print(greeting, style="bold green")
+
 
 @app.command()
 def info():
@@ -42,20 +44,22 @@ def info():
     Display project information in a rich table.
     """
     table = Table(title="Project Information")
-    
+
     table.add_column("Attribute", style="cyan")
     table.add_column("Value", style="magenta")
-    
+
     table.add_row("Name", "blogs")
     table.add_row("Package", "blogs")
     table.add_row("Description", "Python create blog")
     table.add_row("Author", "lettera")
-    
+
     console.print(table)
+
 
 def main():
     """Entry point for the CLI application."""
     app()
+
 
 if __name__ == "__main__":
     main()

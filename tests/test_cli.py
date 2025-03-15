@@ -6,11 +6,13 @@ from blogs.cli import app
 
 runner = CliRunner()
 
+
 def test_hello_default():
     """Test default hello command."""
     result = runner.invoke(app, ["hello"])
     assert result.exit_code == 0
     assert "Hello, World!" in result.output
+
 
 def test_hello_with_name():
     """Test hello command with a name."""
@@ -18,11 +20,13 @@ def test_hello_with_name():
     assert result.exit_code == 0
     assert "Hello, Alice!" in result.output
 
+
 def test_hello_formal():
     """Test formal greeting."""
     result = runner.invoke(app, ["hello", "--name", "Bob", "--formal"])
     assert result.exit_code == 0
     assert "Greetings, esteemed Bob." in result.output
+
 
 def test_info():
     """Test info command."""
